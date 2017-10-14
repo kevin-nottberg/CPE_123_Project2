@@ -1,11 +1,11 @@
 class Venus {
-    constructor(posX, posY, scl, diameter) {
+    constructor(posX, posY, scl, diameter, rotation) {
         this.posX = posX;
         this.posY = posY;
         this.scl = scl;
 
         this.diameter = diameter;
-
+        this.rotation = rotation;
         this.CLICKED = false;
     }
 
@@ -45,13 +45,14 @@ class Venus {
 
 
 class Saturn {
-    constructor(posX, posY, scl, diameter) {
+    constructor(posX, posY, scl, diameter, rotation) {
         this.posX = posX;
         this.posY = posY;
         this.scl = scl;
 
         this.diameter = diameter;
 
+        this.rotation = rotation;
         this.CLICKED = false;
     }
 
@@ -99,13 +100,14 @@ class Saturn {
 
 
 class Jupiter {
-    constructor(posX, posY, scl, diameter) {
+    constructor(posX, posY, scl, diameter, rotation) {
         this.posX = posX;
         this.posY = posY;
         this.scl = scl;
 
         this.diameter = diameter;
 
+        this.rotation = rotation;
         this.CLICKED = false;
     }
 
@@ -156,13 +158,14 @@ class Jupiter {
 }
 
 class Mercury {
-    constructor(posX, posY, scl, diameter) {
+    constructor(posX, posY, scl, diameter, rotation) {
         this.posX = posX;
         this.posY = posY;
         this.scl = scl;
 
         this.diameter = diameter;
 
+        this.rotation = rotation;
         this.CLICKED = false;
     }
 
@@ -204,13 +207,14 @@ class Mercury {
 
 
 class Moon {
-    constructor(posX, posY, scl, diameter) {
+    constructor(posX, posY, scl, diameter, rotation) {
         this.posX = posX;
         this.posY = posY;
         this.scl = scl;
 
         this.diameter = diameter;
 
+        this.rotation = rotation;
         this.CLICKED = false;
     }
 
@@ -251,7 +255,7 @@ class Moon {
 }
 
 class Mars {
-    constructor(posX, posY, scl, diameter) {
+    constructor(posX, posY, scl, diameter, rotation) {
         this.posX = posX;
         this.posY = posY;
         this.scl = scl;
@@ -298,7 +302,7 @@ class Mars {
 }
 
 class Uranus {
-    constructor(posX, posY, scl, diameter) {
+    constructor(posX, posY, scl, diameter, rotation) {
         this.posX = posX;
         this.posY = posY;
         this.scl = scl;
@@ -345,13 +349,14 @@ class Uranus {
 }
 
 class Neptune {
-    constructor(posX, posY, scl, diameter) {
+    constructor(posX, posY, scl, diameter, rotation) {
         this.posX = posX;
         this.posY = posY;
         this.scl = scl;
 
         this.diameter = diameter;
 
+        this.rotation = rotation;
         this.CLICKED = false;
     }
 

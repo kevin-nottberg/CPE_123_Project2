@@ -1,7 +1,7 @@
 var artwork;
 var button;
 
-var inc = 0.01;
+var inc = 0.005;
 var scl = 10;
 var cols, rows;
 
@@ -20,7 +20,7 @@ function setup() {
     rows = floor(400 / scl);
     flowfield = new Array(cols, rows);
 
-    for(let i = 0; i < 400; i++) {
+    for(let i = 0; i < 200; i++) {
         particles[i] = new Particle();
     }
 }
@@ -45,7 +45,7 @@ function draw() {
             }
             yoff += inc;
         }
-        zoff += 0.0001;
+        zoff += 0.001;
     }
 
     stroke(0);

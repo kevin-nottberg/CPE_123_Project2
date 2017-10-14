@@ -1,5 +1,5 @@
 function Particle() {
-    this.pos = createVector(random(width), random(620));
+    this.pos = createVector(random(width), random(390));
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
     this.h = 0;
