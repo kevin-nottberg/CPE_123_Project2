@@ -7,20 +7,22 @@ class Artwork {
         //STATES: 'sitting' or 'scalingBack', 'scaledBack'
         this.STATE = 'sitting';
 
+        this.PLANET_HELD = false;
+
         this.person = new Person(205, 350, 1);
         this.bg = new ArtworkBg(this.posX, this.posY, this.scl);
 
         this.activePlanets = new Array();
         this.notActivePlanets = new Array();
 
-        this.activePlanets.push(new Neptune(141, 146, 1, 50));
-        this.activePlanets.push(new Uranus(215, 125, 1, 50));
-        this.activePlanets.push(new Mercury(242, 231, 1, 60));
-        this.activePlanets.push(new Jupiter(216, 187, 1, 85));
-        this.activePlanets.push(new Saturn(140, 215, 1, 90));
-        this.activePlanets.push(new Venus(186, 255, 1, 75));
-        this.activePlanets.push(new Mars(160, 110, 1, 90));
-        this.activePlanets.push(new Moon(165, 165, 1, 40));
+        this.activePlanets.push(new Neptune(141, 146, 1, 50, 0));
+        this.activePlanets.push(new Uranus(215, 125, 1, 50, 0));
+        this.activePlanets.push(new Mercury(242, 231, 1, 60, 0));
+        this.activePlanets.push(new Jupiter(216, 187, 1, 85, 0));
+        this.activePlanets.push(new Saturn(140, 215, 1, 90, 0));
+        this.activePlanets.push(new Venus(186, 255, 1, 75, 0));
+        this.activePlanets.push(new Mars(160, 110, 1, 90, 0));
+        this.activePlanets.push(new Moon(165, 165, 1, 40, 0));
     }
 
     show() {
@@ -30,20 +32,22 @@ class Artwork {
 
             noStroke();
             this.bg.show();
+            push();
+                //translate(186, 384);
+                //rotate(radian(degree));
+                for(let i = 0; i < this.activePlanets.length; i++) {
+                    stroke(0);
+                    strokeWeight(1);
+                    line(186, 384,
+                            this.activePlanets[i].posX,
+                            this.activePlanets[i].posY);
+                }
 
-            for(let i = 0; i < this.activePlanets.length; i++) {
-                stroke(0);
-                strokeWeight(1);
-                line(186, 384,
-                        this.activePlanets[i].posX,
-                        this.activePlanets[i].posY);
-            }
-
-            for(let i = 0; i < this.activePlanets.length; i++) {
-                noStroke();
-                this.activePlanets[i].show();
-            }
-
+                for(let i = 0; i < this.activePlanets.length; i++) {
+                    noStroke();
+                    this.activePlanets[i].show();
+                }
+            pop();
             this.person.show(this.bg.posX, this.bg.posY);
         pop();
     }
@@ -72,7 +76,7 @@ class Artwork {
             if(this.scl < .75) {
                 this.STATE = 'scaledBack';
             }
-        } else if (this.STATE == 'scalingBack') {
+        } else if (this.STATE == 'scaledBack') {
 
         }
     }
@@ -82,9 +86,19 @@ class Artwork {
     }
 
     processClick(x, y) {
-        for(let i = 0; i < this.activePlanets.length; i++) {
-            this.activePlanets[i].checkClick(x, y);
+        if(this.PLANET_HELD == false) {
+            for(let i = 0; i < this.activePlanets.length; i++) {
+                this.activePlanets[i].checkClick(x, y);
+            }
         }
     }
 
+    mouseDrag(x, y) {
+        for(let i = 0; i < this.activePlanets.length; i++) {
+            if(this.activePlanets[i].checkDrag(x, y)) {
+                this.PLANET_HELD = true;
+                break;
+            }
+        }
+    }
 }

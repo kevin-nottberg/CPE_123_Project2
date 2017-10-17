@@ -9,6 +9,8 @@ var particles = [];
 var flowfield;
 var zoff = 0;
 
+var degreeOfRotation;
+
 function setup() {
     createCanvas(410, 500);
 
@@ -74,12 +76,19 @@ function mousePressed() {
     if(artwork.STATE == 'scaledBack' && button.clicked(mouseX, mouseY)) {
         button.pressure();
     }
-
-    artwork.processClick(mouseX, mouseY);
 }
 
 function mouseReleased() {
     button.released();
+    if(artwork.PLANET_HELD) {
+        artwork.PLANET_HELD = false;
+    } else if (!artwork.PLANET_HELD) {
+        artwork.processClick(mouseX, mouseY);
+    }
+}
+
+function mouseDragged() {
+    artwork.mouseDrag(mouseX, mouseY);
 }
 
 function setGradient(x, y, w, h, col1, col2, drawAcross) {

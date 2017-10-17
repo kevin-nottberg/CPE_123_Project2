@@ -41,6 +41,19 @@ class Venus {
             this.CLICKED = true;
         }
     }
+
+    checkDrag(clickX, clickY) {
+        let xDistance = clickX - this.posX;
+        let yDistance = clickY - this.posY;
+
+        let distance = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+
+        if(distance <= ((this.scl * this.diameter) / 2)) {
+            this.posX = clickX;
+            this.posY = clickY;
+            return true;
+        }
+    }
 }
 
 
@@ -94,6 +107,19 @@ class Saturn {
             this.CLICKED = true;
         } else {
             this.CLICKED = false;
+        }
+    }
+
+    checkDrag(clickX, clickY) {
+        let xDistance = clickX - this.posX;
+        let yDistance = clickY - this.posY;
+
+        let distance = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+
+        if(distance <= ((this.scl * this.diameter) / 2)) {
+            this.posX = clickX;
+            this.posY = clickY;
+            return true;
         }
     }
 }
@@ -155,6 +181,19 @@ class Jupiter {
             this.CLICKED = false;
         }
     }
+
+    checkDrag(clickX, clickY) {
+        let xDistance = clickX - this.posX;
+        let yDistance = clickY - this.posY;
+
+        let distance = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+
+        if(distance <= ((this.scl * this.diameter) / 2)) {
+            this.posX = clickX;
+            this.posY = clickY;
+            return true;
+        }
+    }
 }
 
 class Mercury {
@@ -201,6 +240,19 @@ class Mercury {
             this.CLICKED = true;
         } else {
             this.CLICKED = false;
+        }
+    }
+
+    checkDrag(clickX, clickY) {
+        let xDistance = clickX - this.posX;
+        let yDistance = clickY - this.posY;
+
+        let distance = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+
+        if(distance <= ((this.scl * this.diameter) / 2)) {
+            this.posX = clickX;
+            this.posY = clickY;
+            return true;
         }
     }
 }
@@ -252,6 +304,19 @@ class Moon {
             this.CLICKED = false;
         }
     }
+
+    checkDrag(clickX, clickY) {
+        let xDistance = clickX - this.posX;
+        let yDistance = clickY - this.posY;
+
+        let distance = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+
+        if(distance <= ((this.scl * this.diameter) / 2)) {
+            this.posX = clickX;
+            this.posY = clickY;
+            return true;
+        }
+    }
 }
 
 class Mars {
@@ -297,6 +362,19 @@ class Mars {
             this.CLICKED = true;
         } else {
             this.CLICKED = false;
+        }
+    }
+
+    checkDrag(clickX, clickY) {
+        let xDistance = clickX - this.posX;
+        let yDistance = clickY - this.posY;
+
+        let distance = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+
+        if(distance <= ((this.scl * this.diameter) / 2)) {
+            this.posX = clickX;
+            this.posY = clickY;
+            return true;
         }
     }
 }
@@ -346,6 +424,19 @@ class Uranus {
             this.CLICKED = false;
         }
     }
+
+    checkDrag(clickX, clickY) {
+        let xDistance = clickX - this.posX;
+        let yDistance = clickY - this.posY;
+
+        let distance = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+
+        if(distance <= ((this.scl * this.diameter) / 2)) {
+            this.posX = clickX;
+            this.posY = clickY;
+            return true;
+        }
+    }
 }
 
 class Neptune {
@@ -391,6 +482,19 @@ class Neptune {
             this.CLICKED = true;
         } else {
             this.CLICKED = false;
+        }
+    }
+
+    checkDrag(clickX, clickY) {
+        let xDistance = clickX - this.posX;
+        let yDistance = clickY - this.posY;
+
+        let distance = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+
+        if(distance <= ((this.scl * this.diameter) / 2)) {
+            this.posX = clickX;
+            this.posY = clickY;
+            return true;
         }
     }
 }
