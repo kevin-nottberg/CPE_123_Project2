@@ -9,6 +9,8 @@ class Button {
         this.TEALISH = color(2, 127, 106);
         this.LIGHT_TEALISH = color(0, 255, 212);
         this.currColor = this.TEALISH;
+
+        this.counter = 0;
     }
 
     show() {
@@ -44,6 +46,7 @@ class Button {
             this.currColor = this.TEALISH;
         } else if (!this.on) {
             this.on = true;
+            this.counter++;
             this.currColor = this.LIGHT_TEALISH;
         }
     }

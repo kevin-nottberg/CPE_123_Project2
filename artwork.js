@@ -9,6 +9,8 @@ class Artwork {
 
         this.PLANET_HELD = false;
 
+        //this.SHOW_NOT_ACTIVE = false;
+
         this.person = new Person(205, 350, 1);
         this.bg = new ArtworkBg(this.posX, this.posY, this.scl);
 
@@ -79,6 +81,14 @@ class Artwork {
         } else if (this.STATE == 'scaledBack') {
 
         }
+    }
+
+    getParticlePlanets(){
+        for(let i = 0; i < this.notActivePlanets; i++) {
+            this.notActivePlanets[i].scl = 0.001;
+        }
+
+        return this.notActivePlanets;
     }
 
     scaleBack() {

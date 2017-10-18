@@ -1,6 +1,8 @@
 var artwork;
 var button;
 
+var notActiveParticlePlanets;
+
 var inc = 0.005;
 var scl = 10;
 var cols, rows;
@@ -9,14 +11,12 @@ var particles = [];
 var flowfield;
 var zoff = 0;
 
-var degreeOfRotation;
-
 function setup() {
     createCanvas(410, 500);
 
     artwork = new Artwork(0, 0, 1);
     button = new Button(40, 150, 60, 30);
-    frameRate(50);
+    frameRate(120);
 
     cols = floor(400 / scl);
     rows = floor(400 / scl);
@@ -32,6 +32,7 @@ function draw() {
         || artwork.STATE == 'scalingBack' && !button.on) {
         colorMode(RGB, 255);
         background(255);
+        notActiveParticlePlanets = artwork.getParticlePlanets();
     } else if(artwork.STATE == 'scaledBack' && button.on) {
         yoff = 0;
         for(var y = 0; y < rows; y++) {
@@ -65,6 +66,22 @@ function draw() {
             particles[i].edges();
             particles[i].show();
         }
+
+        for(let i = 0; i < notActiveParticlePlanets.length; i++) {
+            notActiveParticlePlanets[i].posX = particles[i].pos.x;
+            notActiveParticlePlanets[i].posY = particles[i].pos.y;
+        }
+    }
+
+    if(button.counter > 2) {
+        background(255);
+        colorMode(RGB, 255);
+        for(let i = 0; i < notActiveParticlePlanets.length; i++) {
+            notActiveParticlePlanets[i].scl = 0.5;
+            notActiveParticlePlanets[i].show();
+        }
+    } else {
+
     }
 
     colorMode(RGB, 255);
@@ -74,7 +91,9 @@ function draw() {
 
 function mousePressed() {
     if(artwork.STATE == 'scaledBack' && button.clicked(mouseX, mouseY)) {
-        button.pressure();
+        if(button.counter <= 2) {
+            button.pressure();
+        }
     }
 }
 
